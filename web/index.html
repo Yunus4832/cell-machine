@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cell Machine 0.0.1</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>CELL MACHINE 0.0.1</h1>
+        <div class="sub">最小、有限、持续、可复用的计算细胞</div>
+      </div>
+      <div class="sub" id="modelSummary">
+        4-bit opcode · A=8 · 256×12 memory
+      </div>
+    </header>
+    <main>
+      <section>
+        <div class="panel">
+          <div class="title">
+            <span>程序</span
+            ><span
+              ><label
+                >地址位宽 A
+                <select id="addressBits">
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8" selected>8</option>
+                  <option value="10">10</option>
+                  <option value="12">12</option>
+                </select></label
+              >　<label
+                >示例
+                <select id="preset"></select></label
+            ></span>
+          </div>
+          <textarea id="source" spellcheck="false"></textarea>
+          <div class="toolbar">
+            <button class="primary" id="compile">编译并复位</button
+            ><button id="step">单步</button><button id="run">运行</button
+            ><button id="pause">外部暂停</button
+            ><label class="sub"
+              >执行速率
+              <select id="clockHz" aria-label="目标执行速率">
+                <option value="1">1 IPS</option>
+                <option value="2">2 IPS</option>
+                <option value="4">4 IPS</option>
+                <option value="8">8 IPS</option>
+                <option value="16">16 IPS</option>
+                <option value="32">32 IPS</option>
+                <option value="64" selected>64 IPS</option>
+                <option value="128">128 IPS</option>
+                <option value="256">256 IPS</option>
+                <option value="512">512 IPS</option>
+                <option value="1024">1 Ki IPS</option>
+                <option value="2048">2 Ki IPS</option>
+                <option value="4096">4 Ki IPS</option>
+              </select></label
+            ><button class="danger" id="clear">清空内存</button>
+          </div>
+        </div>
+        <div class="panel" style="margin-top: 14px">
+          <div class="title">
+            <span>I/O</span
+            ><span id="ioSummary">端口 00 字符流 · 其余端口12位数值</span>
+          </div>
+          <div class="split">
+            <div>
+              <div class="title">端口 00 输入队列</div>
+              <textarea
+                id="inputQueue"
+                placeholder="输入字符可在运行中被 ,00 消费"
+              ></textarea>
+            </div>
+            <div>
+              <div class="title">端口寄存器</div>
+              <div class="io-row">
+                端口 <input id="portAddr" value="01" maxlength="2" /> 值
+                <input id="portValue" value="000" maxlength="3" /><button
+                  id="setPort"
+                >
+                  写入
+                </button>
+              </div>
+              <div class="hint">网页平台中的未写入端口初值为零。</div>
+            </div>
+          </div>
+          <div class="split">
+            <div>
+              <div class="title">字符输出</div>
+              <pre id="charOut"></pre>
+            </div>
+            <div>
+              <div class="title">事件日志</div>
+              <pre id="log"></pre>
+            </div>
+          </div>
+        </div>
+        <div class="panel" style="margin-top: 14px">
+          <div class="title">16条核心指令</div>
+          <div class="hint" style="padding-top: 12px">
+            <code>&gt;&lt;+-=</code> 数据　<code>[]:</code> 相对控制流　<code
+              >();</code
+            >
+            绝对控制流　<code>PD@</code> 指针反射与间接跳转　<code>,.</code>
+            I/O　<code>#</code> 注释。源码符号映射到固定4位 opcode；无参数
+            <code>[]</code>/<code>()</code>
+            成对自动回填。无停机状态；全零机器字是无副作用的
+            <code>&gt;0</code>。
+          </div>
+        </div>
+      </section>
+      <section class="panel memory-panel">
+        <div class="title">
+          <span>统一内存</span
+          ><span id="memorySummary">点击单元可修改完整12位机器字</span>
+        </div>
+        <div class="status">
+          <div class="reg"><span>PP</span><b id="pp">00</b></div>
+          <div class="reg"><span>DP</span><b id="dp">00</b></div>
+          <div class="reg"><span>[DP]</span><b id="current">0000</b></div>
+          <div class="reg"><span>STEPS</span><b id="steps">0</b></div>
+          <div class="reg"><span>HOST</span><b id="state">RESET</b></div>
+        </div>
+        <div class="toolbar">
+          <button id="prevPage">上一页</button
+          ><span id="pageLabel" class="sub"></span
+          ><button id="nextPage">下一页</button>
+        </div>
+        <div class="memory-wrap"><div class="memory" id="memory"></div></div>
+        <div class="title">
+          <span id="message" class="ok">准备编译</span
+          ><span>黄色 PP · 青色 DP · 绿点 源程序</span>
+        </div>
+      </section>
+    </main>
+    <script src="app.js" defer></script>
+  </body>
+</html>
