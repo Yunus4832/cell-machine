@@ -1,5 +1,7 @@
 # Cell Machine 0.0.1 规范
 
+[中文](specification.md) | [English](specification.en.md)
+
 本文定义 Cell Machine 的参数化架构、紧凑机器编码和源码格式。除非特别说明，数字均为十六进制。
 
 ## 1. 架构参数

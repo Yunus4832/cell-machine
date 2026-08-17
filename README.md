@@ -1,5 +1,7 @@
 # Cell Machine
 
+[中文](README.md) | [English](README.en.md)
+
 **Cell Machine** 是一种有限、持续、可组合的最小计算单元。它不是一台被缩小的通用计算机，而是构成更大计算系统的可复用“计算细胞”。
 
 它直接受到著名极简语言 [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck) 的启发：保留程序指针、数据指针、当前单元操作和极少符号指令，同时主动放弃无限纸带，将抽象图灵机收敛成一台诚实、闭合、适合物理实现的有限机器。
@@ -201,12 +203,13 @@ D01 @01
 
 ```text
 cell-machine/
-├── README.md
+├── README.md / README.en.md
 ├── docs/
-│   ├── concept.md
-│   ├── hardware.md
-│   └── specification.md
+│   ├── concept.md / concept.en.md
+│   ├── hardware.md / hardware.en.md
+│   └── specification.md / specification.en.md
 ├── examples/
+│   ├── README.md / README.en.md
 │   ├── 4+4/
 │   ├── bracket-sugar.cell
 │   ├── collatz.cell

@@ -1,5 +1,7 @@
 # 示例
 
+[中文](README.md) | [English](README.en.md)
+
 所有 `.cell` 文件都可以直接粘贴到 `web/index.html` 的源码区域运行。
 
 | 文件                 | 说明                                                          |

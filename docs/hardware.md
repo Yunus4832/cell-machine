@@ -1,5 +1,7 @@
 # 硬件实现建议
 
+[中文](hardware.md) | [English](hardware.en.md)
+
 仓库中的 [`hardware/logisim/cell-machine-4+8.circ`](../hardware/logisim/cell-machine-4+8.circ) 是 **CM-4+8**（4 位 opcode、8 位 operand、12 位机器字、256 个存储单元）的 Logisim 2.7.1 示例实现，而不是所有地址位宽共享的固定电路。其他规格沿用相同指令与数据通路结构，但需要按参数位宽调整 PP、DP、RAM、机器字和相关算术器件。
 
 ## 最小数据通路
