@@ -219,6 +219,10 @@ cell-machine/
 │   ├── interactive.cell
 │   ├── running-light.cell
 │   └── yes-forever.cell
+├── hardware/
+│   ├── logisim/cell-machine-4+8.circ
+│   ├── rtl/cell_machine_core.sv
+│   └── tb/tb_cell_machine_core.sv
 └── web/
     ├── index.html      # 页面结构
     ├── styles.css      # 页面样式
@@ -238,4 +242,4 @@ Cell Machine 明确致敬和参考：
 
 ## 状态
 
-这是一个仍在形成中的架构提案。0.0.1 版固定16条核心指令和 `4+A` 参数化机器字，并通过网页解释器、示例与 Logisim 原型验证统一内存、指针反射、间接控制流和可变地址空间。后续工作包括进一步简化硬件拓扑、探索 Cell 阵列互连以及实现独立编译器。
+这是一个仍在形成中的架构提案。0.0.1 版固定16条核心指令和 `4+A` 参数化机器字，并通过网页解释器、示例、Logisim 原型以及带完整 opcode 自检的 SystemVerilog RTL 验证统一内存、指针反射、间接控制流和可变地址空间。后续工作包括面向具体 FPGA 优化存储器与时序、探索 Cell 阵列互连以及实现独立编译器。

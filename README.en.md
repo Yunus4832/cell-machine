@@ -149,7 +149,10 @@ cell-machine/
 ├── README.md / README.en.md
 ├── docs/          # concept, specification, and hardware notes (zh/en)
 ├── examples/      # runnable .cell programs and bilingual index
-├── hardware/logisim/cell-machine-4+8.circ
+├── hardware/
+│   ├── logisim/cell-machine-4+8.circ
+│   ├── rtl/cell_machine_core.sv
+│   └── tb/tb_cell_machine_core.sv
 └── web/           # browser compiler, executor, and interface
 ```
 
@@ -157,4 +160,4 @@ cell-machine/
 
 Cell Machine explicitly acknowledges Brainfuck’s two-pointer minimalism, [Self-modifying Brainfuck](https://soulsphere.org/hacks/smbf/), Core War, Tierra, Avida, GreenArrays GA144, processor arrays, and programmable state machines. Its goal is to converge these ideas into a finite, symmetric computing cell reusable in software and hardware.
 
-Version 0.0.1 fixes the 16 core instructions and the parameterized `4+A` word, and validates unified memory, pointer reflection, indirect control flow, variable address widths, a browser implementation, examples, and a Logisim prototype. It remains an evolving architecture proposal.
+Version 0.0.1 fixes the 16 core instructions and the parameterized `4+A` word, and validates unified memory, pointer reflection, indirect control flow, and variable address widths through the browser implementation, examples, a Logisim prototype, and SystemVerilog RTL with a complete opcode self-test. It remains an evolving architecture proposal; future work includes target-specific FPGA memory and timing, Cell-array interconnects, and a standalone compiler.

@@ -4,6 +4,8 @@
 
 [`hardware/logisim/cell-machine-4+8.circ`](../hardware/logisim/cell-machine-4+8.circ) is a Logisim 2.7.1 example of **CM-4+8**: 4-bit opcode, 8-bit operand, 12-bit word, and 256 memory words. It is not one fixed circuit for every A. Other variants keep the same ISA and datapath shape while resizing PP, DP, RAM, words, and arithmetic components.
 
+The automatically verified reference RTL is [`hardware/rtl/cell_machine_core.sv`](../hardware/rtl/cell_machine_core.sv). It implements CM-4+8 by default and uses parameter `A` for other configurations. See [`hardware/README.en.md`](../hardware/README.en.md) for the Icarus Verilog self-test and GTKWave workflow.
+
 ## Minimal datapath
 
 ```text
